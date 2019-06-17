@@ -1,19 +1,41 @@
-function adder(InputA, InputB){
-    console.log(parseInt(InputA) + parseInt(InputB));
+function updater(Result){
+    console.log(Result);
+    document.getElementById('LatestOutput').innerText = Result;
+    let thisResult = document.createElement('p');
+    thisResult.innerText = Result;
+    thisResult.tagName = 'LoggedOutput';
+    document.getElementById('OutputLog').appendChild(thisResult);
 }
 
-function subtracter(InputA, InputB){
-    console.log(parseInt(InputA) - parseInt(InputB));
+function deleteLog() {
+    document.getElementById('LatestOutput').innerText = 0;
+    let OutLog = document.getElementById('OutputLog');
+    while (OutLog.firstChild) {
+        OutLog.removeChild(OutLog.firstChild);
+    }
 }
 
-function multiplier(InputA, InputB){
-    console.log(parseInt(InputA) * parseInt(InputB));
+function adder(InputA, InputB) {
+    let Result = parseInt(InputA) + parseInt(InputB);
+    updater(Result);
 }
 
-function divider(InputA, InputB){
-    console.log(parseInt(InputA) / parseInt(InputB));
+function subtracter(InputA, InputB) {
+    let Result = parseInt(InputA) - parseInt(InputB);
+    updater(Result);
 }
 
-function moduluser(InputA, InputB){
-    console.log(parseInt(InputA) % parseInt(InputB));
+function multiplier(InputA, InputB) {
+    let Result = parseInt(InputA) * parseInt(InputB);
+    updater(Result);
+}
+
+function divider(InputA, InputB) {
+    let Result = parseInt(InputA) / parseInt(InputB);
+    updater(Result);
+}
+
+function moduluser(InputA, InputB) {
+    let Result = parseInt(InputA) % parseInt(InputB);
+    updater(Result);
 }

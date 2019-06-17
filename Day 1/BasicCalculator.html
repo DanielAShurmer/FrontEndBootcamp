@@ -1,14 +1,26 @@
 <!DOCTYPE html>
 <html>
-    <head></head>
-    <body>
-        <input id="InputA">
-        <input id="InputB">
-        <button onclick="adder(document.getElementById('InputA').value,document.getElementById('InputB').value)">+</button>
-        <button onclick="subtracter(document.getElementById('InputA').value,document.getElementById('InputB').value)">-</button>
-        <button onclick="multiplier(document.getElementById('InputA').value,document.getElementById('InputB').value)">*</button>
-        <button onclick="divider(document.getElementById('InputA').value,document.getElementById('InputB').value)">/</button>
-        <button onclick="moduluser(document.getElementById('InputA').value,document.getElementById('InputB').value)">%</button>
-        <script src="MathScripts.js"> </script>
-    </body>
+
+<head></head>
+
+<body>
+    <input id="InputA">
+    <input id="InputB">
+    <button onclick="adder(document.getElementById('InputA').value,document.getElementById('InputB').value)">+</button>
+    <button
+        onclick="subtracter(document.getElementById('InputA').value,document.getElementById('InputB').value)">-</button>
+    <button
+        onclick="multiplier(document.getElementById('InputA').value,document.getElementById('InputB').value)">*</button>
+    <button
+        onclick="divider(document.getElementById('InputA').value,document.getElementById('InputB').value)">/</button>
+    <button
+        onclick="moduluser(document.getElementById('InputA').value,document.getElementById('InputB').value)">%</button>
+
+    <button onclick="deleteLog()">Clear Log</button>
+    
+    <h1 id="LatestOutput">0</h1>
+    <div id="OutputLog"></div>
+    <script src="MathScripts.js"> </script>
+</body>
+
 </html>
