@@ -1,12 +1,17 @@
 <!DOCTYPE html>
 <html>
 
-<head></head>
+<head>
+    <link href="CalcStyles.css" rel="stylesheet" type="text/css">
+    </link>
+
+</head>
 
 <body>
-    <input id="InputA">
-    <input id="InputB">
-    <button onclick="calc(document.getElementById('InputA').value,document.getElementById('InputB').value).add()">+</button>
+    <input type="number" id="InputA">
+    <input type="number" id="InputB">
+    <button
+        onclick="calc(document.getElementById('InputA').value,document.getElementById('InputB').value).add()">+</button>
     <button
         onclick="calc(document.getElementById('InputA').value,document.getElementById('InputB').value).sub()">-</button>
     <button
@@ -17,7 +22,7 @@
         onclick="calc(document.getElementById('InputA').value,document.getElementById('InputB').value).mod()">%</button>
 
     <button onclick="deleteLog()">Clear Log</button>
-    
+
     <h1 id="LatestOutput">0</h1>
     <div id="OutputLog"></div>
     <script src="MathScripts.js"> </script>
