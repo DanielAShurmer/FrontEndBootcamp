@@ -15,27 +15,12 @@ function deleteLog() {
     }
 }
 
-function adder(InputA, InputB) {
-    let Result = parseInt(InputA) + parseInt(InputB);
-    updater(Result);
-}
-
-function subtracter(InputA, InputB) {
-    let Result = parseInt(InputA) - parseInt(InputB);
-    updater(Result);
-}
-
-function multiplier(InputA, InputB) {
-    let Result = parseInt(InputA) * parseInt(InputB);
-    updater(Result);
-}
-
-function divider(InputA, InputB) {
-    let Result = parseInt(InputA) / parseInt(InputB);
-    updater(Result);
-}
-
-function moduluser(InputA, InputB) {
-    let Result = parseInt(InputA) % parseInt(InputB);
-    updater(Result);
+function calc(InputA, InputB) {
+    return{
+        add: function() { updater(parseInt(InputA) + parseInt(InputB)); },
+        sub: function() { updater(InputA - InputB); },
+        mul: function() { updater(InputA * InputB); },
+        div: function() { updater(InputA / InputB); },
+        mod: function() { updater(InputA % InputB); },
+    }
 }

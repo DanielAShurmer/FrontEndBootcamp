@@ -6,15 +6,15 @@
 <body>
     <input id="InputA">
     <input id="InputB">
-    <button onclick="adder(document.getElementById('InputA').value,document.getElementById('InputB').value)">+</button>
+    <button onclick="calc(document.getElementById('InputA').value,document.getElementById('InputB').value).add()">+</button>
     <button
-        onclick="subtracter(document.getElementById('InputA').value,document.getElementById('InputB').value)">-</button>
+        onclick="calc(document.getElementById('InputA').value,document.getElementById('InputB').value).sub()">-</button>
     <button
-        onclick="multiplier(document.getElementById('InputA').value,document.getElementById('InputB').value)">*</button>
+        onclick="calc(document.getElementById('InputA').value,document.getElementById('InputB').value).mul()">*</button>
     <button
-        onclick="divider(document.getElementById('InputA').value,document.getElementById('InputB').value)">/</button>
+        onclick="calc(document.getElementById('InputA').value,document.getElementById('InputB').value).div()">/</button>
     <button
-        onclick="moduluser(document.getElementById('InputA').value,document.getElementById('InputB').value)">%</button>
+        onclick="calc(document.getElementById('InputA').value,document.getElementById('InputB').value).mod()">%</button>
 
     <button onclick="deleteLog()">Clear Log</button>
     
