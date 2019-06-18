@@ -42,3 +42,13 @@ input{
     overflow-wrap: break-word;
 }
 
+#RegConfirmation{
+    text-align: center;
+    font-size: 300%;
+}
+
+#UserName{
+    text-align: center;
+    font-size: 200%;
+    color: linen;
+}
