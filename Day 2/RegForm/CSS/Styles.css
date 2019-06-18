@@ -40,9 +40,19 @@ input{
     border: white 5px solid;
     border-radius: 1rem;
     overflow-wrap: break-word;
+    width: 45vw;
+    max-width: 300px;
 }
 
-#RegConfirmation{
+select{
+    border: white 5px solid;
+    border-radius: 1rem;
+    overflow-wrap: break-word;
+    width: 45vw;
+    max-width: 300px;
+}
+
+.PageHeader{
     text-align: center;
     font-size: 300%;
 }
@@ -51,4 +61,9 @@ input{
     text-align: center;
     font-size: 200%;
     color: linen;
+}
+
+#Details{
+    background-color: rgb(38, 38, 38);
+    text-align: center;
 }

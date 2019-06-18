@@ -7,19 +7,19 @@
 </head>
 
 <body>
-    <h1>Registration Form</h1>
+    <h1 class="PageHeader">Registration Form</h1>
     <div class="formBox">
         <form onsubmit="return handleSubmit(this)">
-            <div class="column">
+            <div class="column" id="ColumnOne">
                 <p>First Name:</p>
-                <input id="FirstName" type="text" tabindex="1" required>
+                <input id="First Name" type="text" tabindex="1" required>
                 <p>Phone Number:</p>
-                <input id="PhoneNumber" type="tel"
+                <input id="Phone Number" type="tel"
                     pattern="^(\+[0-9]{0,2} )?[0-9]{1,5}(( *-*[0-9]{2,6})( *-*[0-9]{4,6})?)?$" tabindex="3" required>
                 <p></p>
                 <small>Must Be In Format 01234 678123</small>
                 <p>House Number:</p>
-                <input id="HouseNumber" type="number" tabindex="5" required>
+                <input id="House Number" type="number" tabindex="5" required>
                 <p>Gender:</p>
                 <select id="Gender" tabindex="7">
                     <option value="Male">Male</option>
@@ -28,9 +28,9 @@
                     <option value="N/A">Prefer Not To Say</option>
                 </select>
             </div>
-            <div class="column">
+            <div class="column" id="ColumnTwo">
                 <p>Last Name:</p>
-                <input id="LastName" type="text" tabindex="2" required>
+                <input id="Last Name" type="text" tabindex="2" required>
                 <p>Date Of Birth:</p>
                 <input id="BoD" type="date" tabindex="4" required>
                 <p>Postcode:</p>

@@ -1,11 +1,13 @@
 let userdata = {}
 
 function handleSubmit(formData) {
+    // Force Order Of First & Last Names To Be At Start Of List For Better Reading/Searching Later
+    userdata["First Name"] = document.getElementById("First Name").value;
+    userdata["Last Name"] = document.getElementById("Last Name").value;
 
     for (let control of formData) {
-        if (control.id != "SubmitButton") {
-            userdata[control.id] = control.value;                            // Alternate implimentation with adding more key-value pairs to storage.
-    //                                                                          sessionStorage.setItem(control.id, control.value);
+        if (control.id != "SubmitButton" && control.id != "First Name" && control.id != "Last Name") {
+            userdata[control.id] = control.value;                            
         }
     }
     console.log(userdata);
@@ -17,10 +19,7 @@ function handleSubmit(formData) {
 }
 
 function displayUsername(){
-    let UserName = "";                                                       // Alternate implimentation with retreving two key-value pairs from storage.
-    //                                                                          UserName += sessionStorage.getItem("FirstName");
-    //                                                                          UserName += " ";
-    //                                                                          UserName += sessionStorage.getItem("LastName");
+    let UserName = "";                                                    
 
     userdata = JSON.parse(sessionStorage.getItem("userData"));
     UserName += userdata["FirstName"];
@@ -28,4 +27,15 @@ function displayUsername(){
     UserName += userdata["LastName"];
 
     document.getElementById("UserName").innerText = UserName;
+}
+
+function displayDetails(){
+    userdata = JSON.parse(sessionStorage.getItem("userData"));
+    for (let key in userdata){
+        let thisDetail = document.createElement("p");
+        thisDetail.innerText = key;
+        thisDetail.innerText += ": ";
+        thisDetail.innerText += userdata[key];
+        document.getElementById("Details").appendChild(thisDetail);
+    }
 }
