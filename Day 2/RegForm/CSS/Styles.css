@@ -36,15 +36,7 @@ button:focus{
     background-color: rgb(38, 38, 38);
 }
 
-input{
-    border: white 5px solid;
-    border-radius: 1rem;
-    overflow-wrap: break-word;
-    width: 45vw;
-    max-width: 300px;
-}
-
-select{
+input, select{
     border: white 5px solid;
     border-radius: 1rem;
     overflow-wrap: break-word;
