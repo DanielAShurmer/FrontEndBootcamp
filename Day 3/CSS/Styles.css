@@ -9,11 +9,6 @@ body {
     padding: 10px 50px;
 }
 
-.pageHeader{
-    text-align: center;
-    font-size: 300%;
-}
-
 .heroBox{
     background-color: rgb(70, 70, 70);
     padding: 1px 10px;
@@ -39,6 +34,10 @@ body {
     font-size: 2vw;
 }
 
+.heroName{
+    font-size: 2.5vw;
+}
+
 @media screen and (max-width: 700px) {
     #js_team_details {
        font-size: 14px;
@@ -49,11 +48,14 @@ body {
     .heroBox{
         width: 100%;
     }
+    .heroName{
+        font-size: 17px;
+    }
     #js_member_details{
         display: flex;
         flex-wrap: wrap;
     }
-  }
+}
 
 @media screen and (min-width: 900px) {
     #js_team_details {
@@ -62,5 +64,32 @@ body {
     .heroDetail{
         font-size: 18px;
     }
-  }
+}
 
+/* https://css-tricks.com/snippets/css/typewriter-effect/ */
+.pageHeader {
+    justify-content: center;
+    text-align: center;
+    font-size: 300%;
+    color: #fff;
+    overflow: hidden; /* Ensures the content is not revealed until the animation */
+    border-right: .15em solid orange; /* The typwriter cursor */
+    white-space: nowrap; /* Keeps the content on a single line */
+    margin: 0 auto; /* Gives that scrolling effect as the typing happens */
+    letter-spacing: .15em; /* Adjust as needed */
+    animation: 
+      typing 3.5s steps(30, end),
+      blink-caret .5s step-end infinite;
+}
+  
+  /* The typing effect */
+  @keyframes typing {
+    from { width: 0 }
+    to { width: 100% }
+  }
+  
+  /* The typewriter cursor effect */
+  @keyframes blink-caret {
+    from, to { border-color: transparent }
+    50% { border-color: orange }
+  }
