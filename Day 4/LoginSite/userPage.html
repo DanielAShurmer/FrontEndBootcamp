@@ -7,7 +7,28 @@
     <link rel="stylesheet" href="CSS/Styles.css">
 </head>
 
-<body>
+<body onload="loadDetails()">
+
+    <h1>Edit User Details</h1>
+    <form class="js_update_form" onsubmit="return handleEdit(this)">
+        <p>Username:</p>
+        <input id="js_update_username" type="text" tabindex="1" required>
+        <p>First Name:</p>
+        <input id="js_update_first_name" type="text" tabindex="2" required>
+        <p>Last Name:</p>
+        <input id="js_update_last_name" type="text" tabindex="3" required>
+        <p>Email:</p>
+        <input id="js_update_email" type="text" tabindex="4" required>
+        <p>Select A Password:</p>
+        <input id="js_update_password" type="password" tabindex="5" required>
+        <div></div>
+        <div id="js_error_display">
+            <p id="js_error_message"></p>
+        </div>
+        <button class="btn btn-primary">Update</button>
+        <button class="btn btn-danger" type="button" onclick="return handleDelete(this)">Delete</button>
+        <button class="btn btn-secondary" type="button" onclick="return swapToMainPage()">Back</button>
+    </form>
 
     <script src="Scripts/Scripts.js"></script>
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"

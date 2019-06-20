@@ -13,6 +13,7 @@ function swapToRegisterPage() {
 }
 
 function swapToMainPage() {
+    sessionStorage.clear();
     window.location = "mainPage.html";
 }
 
@@ -35,7 +36,7 @@ function findUserMatch() {
         if (checkingDetails[0] == document.getElementById("js_log_in_username").value &&
             checkingDetails[1] == document.getElementById("js_log_in_password").value) {
             matchingLogInFound = true;
-            sessionStorage.setItem("currentUser", thisUser);
+            sessionStorage.setItem("currentUser", checkingDetails[0]);
             const LogInRequest = new XMLHttpRequest();
             LogInRequest.onload = function () {
                 window.location = "userPage.html";
@@ -61,6 +62,33 @@ function findUserMatch() {
     }
 }
 
+function loadDetails() {
+    let currentUser = sessionStorage.getItem("currentUser");
+    console.log(currentUser);
+
+    const DataRequest = new XMLHttpRequest();
+
+    DataRequest.onload = function () {
+        console.log("Data Received!");
+        allUserCreds = JSON.parse(DataRequest.responseText);
+
+        for (let data in allUserCreds) {
+            if (data == currentUser) {
+                let thisUser = allUserCreds[data];
+                document.getElementById("js_update_first_name").value = thisUser["firstName"];
+                document.getElementById("js_update_last_name").value = thisUser["lastName"];
+                document.getElementById("js_update_email").value = thisUser["email"];
+                document.getElementById("js_update_password").value = thisUser["password"];
+                document.getElementById("js_update_username").value = currentUser;
+            }
+        }
+    }
+
+    DataRequest.open("GET", "https://us-central1-qac-sandbox.cloudfunctions.net/getUsers");
+    DataRequest.send();
+
+}
+
 function handleLogIn(formData) {
     for (let control of formData) {
         currentUserCreds[control.id] = control.value;
@@ -82,8 +110,6 @@ function handleLogIn(formData) {
 
 function handleRegister(formData) {
 
-    var scope = this;
-
     let userToAddDetails = {};
     userToAddDetails["username"] = formData[0].value;
     userToAddDetails["email"] = formData[3].value;
@@ -93,7 +119,7 @@ function handleRegister(formData) {
 
     console.log(userToAddDetails);
 
-    
+
     const InputDataRequest = new XMLHttpRequest();
 
     InputDataRequest.onloadend = function () {
@@ -101,10 +127,54 @@ function handleRegister(formData) {
         swapToMainPage();
     }
 
-    InputDataRequest.open("POST","https://us-central1-qac-sandbox.cloudfunctions.net/setUser");
+    InputDataRequest.open("POST", "https://us-central1-qac-sandbox.cloudfunctions.net/setUser");
     InputDataRequest.setRequestHeader("Content-Type", "application/json");
     InputDataRequest.send(JSON.stringify(userToAddDetails));
-    
+
+
+    return false;
+}
+
+function handleEdit(formData) {
+    let currentUser = sessionStorage.getItem("currentUser");
+    const DataRequest = new XMLHttpRequest();
+
+    DataRequest.onloadend = function () {
+        console.log("User Deleted! Readding...");
+        let userToAddDetails = {};
+        userToAddDetails["username"] = formData[0].value;
+        userToAddDetails["email"] = formData[3].value;
+        userToAddDetails["firstName"] = formData[1].value;
+        userToAddDetails["lastName"] = formData[2].value;
+        userToAddDetails["password"] = formData[4].value;
+        const InputDataRequest = new XMLHttpRequest();
+
+        InputDataRequest.onloadend = function () {
+            console.log("User Readded!");
+        }
+
+        InputDataRequest.open("POST", "https://us-central1-qac-sandbox.cloudfunctions.net/setUser");
+        InputDataRequest.setRequestHeader("Content-Type", "application/json");
+        InputDataRequest.send(JSON.stringify(userToAddDetails));
+    }
+
+    DataRequest.open("DELETE", "https://us-central1-qac-sandbox.cloudfunctions.net/deleteUser​?username=" + currentUser);
+    DataRequest.send();
+
+    return false;
+}
+
+function handleDelete(formData) {
+    let currentUser = sessionStorage.getItem("currentUser");
+    const DataRequest = new XMLHttpRequest();
+
+    DataRequest.onloadend = function () {
+        console.log("User Deleted!");
+        swapToMainPage();
+    }
+
+    DataRequest.open("DELETE", "https://us-central1-qac-sandbox.cloudfunctions.net/deleteUser​?username=" + currentUser);
+    DataRequest.send();
 
     return false;
 }
