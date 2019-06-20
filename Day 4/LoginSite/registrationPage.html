@@ -8,7 +8,25 @@
 </head>
 
 <body>
-
+    <h1>Register</h1>
+    <form class="js_sign_in_form" onsubmit="return handleRegister(this)">
+        <p>Username:</p>
+        <input id=" js_register_username" type="text" tabindex="1" required>
+        <p>First Name:</p>
+        <input id=" js_register_first_name" type="text" tabindex="2" required>
+        <p>Last Name:</p>
+        <input id=" js_register_last_name" type="text" tabindex="3" required>
+        <p>Email:</p>
+        <input id=" js_register_email" type="text" tabindex="4" required>
+        <p>Select A Password:</p>
+        <input id="js_register_password" type="password" tabindex="5" required>
+        <div></div>
+        <div id="js_error_display">
+            <p id="js_error_message"></p>
+        </div>
+        <button class="btn btn-primary">Register</button>
+        <button class="btn btn-secondary" type="button" onclick="return swapToMainPage()">Back</button>
+    </form>
     <script src="Scripts/Scripts.js"></script>
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
         integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
